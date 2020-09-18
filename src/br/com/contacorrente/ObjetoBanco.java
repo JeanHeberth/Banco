@@ -23,6 +23,16 @@ public class ObjetoBanco {
 				objeto.entraDeposito();
 
 				break;
+
+			case 3:
+				 objeto.entraSaque();
+
+				break;
+
+			case 4:
+				 objeto.entraSaldo();
+
+				break;
 			}
 
 			// obj.entr
