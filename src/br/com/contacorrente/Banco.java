@@ -1,6 +1,7 @@
 package br.com.contacorrente;
 
 import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
 
 public class Banco {
 
@@ -50,6 +51,8 @@ public class Banco {
 		this.nome = nome;
 	}
 
+	DecimalFormat resultadoValor = new DecimalFormat("###.##");
+
 	public void entraCadastro() {
 		nome = JOptionPane.showInputDialog("Digite seu Nome: ", "Exemplo: Pablo Trindade");
 		cadastro = (Integer.parseInt(JOptionPane.showInputDialog("Digite o número da Conta: ", "Exemplo: 321654")));
@@ -61,8 +64,8 @@ public class Banco {
 	public void entraDeposito() {
 
 		deposito = (Float.parseFloat((JOptionPane.showInputDialog("Digite o valor a ser depositado: "))));
-		JOptionPane.showMessageDialog(null,
-				"O depoisto de valor R$: " + deposito + " foi depositado na conta do sr.(a) " + nome);
+		JOptionPane.showMessageDialog(null, "O depoisto de valor R$: " + resultadoValor.format(deposito)
+				+ " foi depositado na conta do sr.(a) " + nome);
 
 		saldo = saldo + deposito;
 	}
@@ -70,8 +73,9 @@ public class Banco {
 	// metodo entraSaque
 	public void entraSaque() {
 		saque = (Float.parseFloat(JOptionPane.showInputDialog(" Informe o valor a ser sacado ")));
-		if (saldo > saque) {
-			JOptionPane.showMessageDialog(null, "O saque no valor de " + saque + " foi realizado com sucesso");
+		if (saldo >= saque) {
+			JOptionPane.showMessageDialog(null,
+					"O saque no valor de " + resultadoValor.format(saque) + " foi realizado com sucesso");
 			saldo = saldo - saque;
 		} else {
 			JOptionPane.showMessageDialog(null, "O saldo é insuficiente");
@@ -82,7 +86,7 @@ public class Banco {
 	// metodo entraSaldo
 	public void entraSaldo() {
 
-		JOptionPane.showMessageDialog(null, "O valor total em sua conta é: " + saldo);
+		JOptionPane.showMessageDialog(null, "O valor total em sua conta é: " + resultadoValor.format(saldo));
 
 	}
 
