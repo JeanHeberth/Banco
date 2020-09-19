@@ -62,7 +62,7 @@ public class Banco {
 
 		deposito = (Float.parseFloat((JOptionPane.showInputDialog("Digite o valor a ser depositado: "))));
 		JOptionPane.showMessageDialog(null,
-				"O depoisto de valor " + deposito + " foi depositado na conta do sr.(a) " + nome);
+				"O depoisto de valor R$: " + deposito + " foi depositado na conta do sr.(a) " + nome);
 
 		saldo = saldo + deposito;
 	}
@@ -72,11 +72,11 @@ public class Banco {
 		saque = (Float.parseFloat(JOptionPane.showInputDialog(" Informe o valor a ser sacado ")));
 		if (saldo > saque) {
 			JOptionPane.showMessageDialog(null, "O saque no valor de " + saque + " foi realizado com sucesso");
+			saldo = saldo - saque;
 		} else {
 			JOptionPane.showMessageDialog(null, "O saldo é insuficiente");
 		}
-		
-		saldo = saldo - saque; 
+
 	}
 
 	// metodo entraSaldo
