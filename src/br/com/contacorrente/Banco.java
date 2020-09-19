@@ -51,7 +51,7 @@ public class Banco {
 		this.nome = nome;
 	}
 
-	DecimalFormat resultadoValor = new DecimalFormat("###.##");
+	DecimalFormat resultadoValor = new DecimalFormat("###.##0.00");
 
 	public void entraCadastro() {
 		nome = JOptionPane.showInputDialog("Digite seu Nome: ", "Exemplo: Pablo Trindade");
